@@ -47,7 +47,7 @@ $data = mysqli_query($connect, "SELECT * FROM student");
         <td><?php echo $row[3]; ?></td>
         <td><?php echo $row[4]; ?></td>
         <td>
-          <a href="edit.php?id=<?php echo $row[0]; ?>" class="btn btn-warning btn-sm">Edit</a>
+          <a href="update.php?id=<?php echo $row[0]; ?>" class="btn btn-warning btn-sm">Edit</a>
           <a href="view.php?viedit=<?php echo $row[0]; ?>" class="btn btn-danger btn-sm">Delete</a>
         </td>
       </tr>
