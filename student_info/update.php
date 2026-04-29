@@ -6,12 +6,12 @@ $database = mysqli_connect("localhost", "root","","student_info");
     $old_contact ="";
     $old_address = "";
 
-if(isset($_GET['update_data'])){
-    $id = $_GET['update_data'];
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
 
 
     $result =$database->query( "SELECT * FROM student where id = '$id'");
-    $data =$result-> fetch_assoc($result);
+    $data =$result->fetch_assoc();
 
     //database table field
     
@@ -27,7 +27,7 @@ if(isset($_POST['btnupdate'])){
     $contact = $_POST['contact']; 
     $address = $_POST['address'];
 
-    $query="UPDATE student SET name='$name',email='$email', contact='$contact',address='$address' WHERE id='$id'";
+    $query="UPDATE student SET name='$name',email='$email', contact='$contact', address='$address' WHERE id='$id'";
     
     if(mysqli_query($database,$query)){
        
