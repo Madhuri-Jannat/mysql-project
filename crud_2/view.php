@@ -1,12 +1,12 @@
 <?php
-$connect = mysqli_connect("localhost", "root", "", "student_info");
-$data = mysqli_query($connect, "SELECT * FROM student");
+$connect = mysqli_connect("localhost", "root", "", "crud_2");
+$data = mysqli_query($connect, "SELECT * FROM users");
 
  if(isset($_GET['viedit'])){
     $deleteid=$_GET['viedit'];
 
 
-    $sql = "DELETE FROM student WHERE id= $deleteid";
+    $sql = "DELETE FROM users WHERE id= $deleteid";
     if(mysqli_query($connect,$sql)== TRUE){
         header('location: view.php');
     }
@@ -31,9 +31,7 @@ $data = mysqli_query($connect, "SELECT * FROM student");
       <tr>
         <th>id</th>
         <th>name</th>
-        <th>email</th>
         <th>contact</th>
-        <th>address</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -44,10 +42,8 @@ $data = mysqli_query($connect, "SELECT * FROM student");
         <td><?php echo $row[0]; ?></td>
         <td><?php echo $row[1]; ?></td>
         <td><?php echo $row[2]; ?></td>
-        <td><?php echo $row[3]; ?></td>
-        <td><?php echo $row[4]; ?></td>
         <td>
-          <a href="update.php?id=<?php echo $row[0]; ?>" class="btn btn-warning btn-sm">update</a>
+          <a href="edit.php?id=<?php echo $row[0]; ?>" class="btn btn-warning btn-sm">Edit</a>
           <a href="view.php?viedit=<?php echo $row[0]; ?>" class="btn btn-danger btn-sm">Delete</a>
         </td>
       </tr>
