@@ -73,7 +73,7 @@ if(isset($_POST['Delete_product'])){
          <tbody>
             <?php
             $manufac=$database->query("SELECT * FROM manufact_view");
-            while(list($id,$name,$price)= $manufac->fetch_row()){
+            while(list($name,$price)= $manufac->fetch_row()){
              ?>
               <tr>
                 <td><?php echo $name; ?></td>
